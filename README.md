@@ -25,3 +25,12 @@ Create a new file: `/Users/<username>/vault.json`
   "RPA_SECRET_FILE": "/Users/<username>/vault.json"
 }
 ```
+
+## Example `contacts.csv` output
+
+```csv
+0,1,2,3
+John,Smith,john.smith@accenture.com,4/13/2007
+Mindy,Notreal,mindy.notreal@gmail.com,2/3/2007
+...
+```
