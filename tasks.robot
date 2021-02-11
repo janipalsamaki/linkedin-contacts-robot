@@ -19,6 +19,13 @@ Log in
     Wait For Elements State    text=My Network    visible
 
 *** Keywords ***
+Scroll the page and wait until network is idle
+    FOR    ${i}    IN RANGE    10
+        Scroll By    vertical=100%
+    END
+    Run Keyword And Ignore Error    Wait Until Network Is Idle
+
+*** Keywords ***
 Get contacts
     [Arguments]    ${contact_elements}
     @{contacts}=    Create List
@@ -45,6 +52,7 @@ Get contact info
 Store LinkedIn contacts into a CSV file
     Log in
     Go To    https://www.linkedin.com/mynetwork/import-contacts/saved-contacts/
+    Scroll the page and wait until network is idle
     @{contact_elements}=    Get Elements    css=.contact-summary__name
     @{contacts}=    Get contacts    ${contact elements}
     ${table}=    Create Table    ${contacts}
