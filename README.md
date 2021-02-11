@@ -37,4 +37,6 @@ Mindy,Notreal,mindy.notreal@gmail.com,2/3/2007
 
 ## Notes
 
-> This robot can not be run from Robocorp Cloud as LinkedIn will detect a "suspicious login attempt" and sends a verification code to your email.
+The robot uses the [Playwright](https://playwright.dev/)-based [Robot Framework Browser library](https://robotframework-browser.org/) in the default headless mode (you will not see the browser GUI when the robot is working).
+
+The robot can not be run from Robocorp Cloud as LinkedIn will detect a "suspicious login attempt" (location-based check) and sends a verification code to your email.
