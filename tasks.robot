@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     Store LinkedIn contacts in a CSV file.
+Documentation     Store LinkedIn contacts into a CSV file.
 Library           Browser
 Library           Collections
 Library           RPA.Robocloud.Secrets
@@ -10,7 +10,7 @@ Library           String
 ${CONTACTS_CSV}=    ${CURDIR}${/}output${/}contacts.csv
 
 *** Tasks ***
-Store LinkedIn contacts in a CSV file
+Store LinkedIn contacts into a CSV file
     Log in
     Go To    https://www.linkedin.com/mynetwork/import-contacts/saved-contacts/
     @{contact_elements}=    Get Elements    css=.contact-summary__name
