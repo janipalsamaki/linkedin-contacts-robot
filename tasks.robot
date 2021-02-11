@@ -20,7 +20,7 @@ Store LinkedIn contacts into a CSV file
 
 *** Keywords ***
 Log in
-    Open Browser    https://www.linkedin.com/
+    New Page    https://www.linkedin.com/
     ${secret}=    Get Secret    linkedin
     Type Secret    css=#session_key    ${secret}[username]
     Type Secret    css=#session_password    ${secret}[password]
