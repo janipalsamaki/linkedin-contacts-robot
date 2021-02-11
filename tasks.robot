@@ -9,15 +9,6 @@ Library           String
 *** Variables ***
 ${CONTACTS_CSV}=    ${CURDIR}${/}output${/}contacts.csv
 
-*** Tasks ***
-Store LinkedIn contacts into a CSV file
-    Log in
-    Go To    https://www.linkedin.com/mynetwork/import-contacts/saved-contacts/
-    @{contact_elements}=    Get Elements    css=.contact-summary__name
-    @{contacts}=    Get contacts    ${contact elements}
-    ${table}=    Create Table    ${contacts}
-    Write Table To Csv    ${table}    ${CONTACTS_CSV}
-
 *** Keywords ***
 Log in
     New Page    https://www.linkedin.com/
@@ -27,6 +18,7 @@ Log in
     Click    css=.sign-in-form__submit-button
     Wait For Elements State    text=My Network    visible
 
+*** Keywords ***
 Get contacts
     [Arguments]    ${contact_elements}
     @{contacts}=    Create List
@@ -36,6 +28,7 @@ Get contacts
     END
     [Return]    ${contacts}
 
+*** Keywords ***
 Get contact info
     [Arguments]    ${contact_element}
     Click    ${contact_element}
@@ -47,3 +40,12 @@ Get contact info
     END
     Click    css=button[aria-label="Dismiss"]
     [Return]    ${contact_info}
+
+*** Tasks ***
+Store LinkedIn contacts into a CSV file
+    Log in
+    Go To    https://www.linkedin.com/mynetwork/import-contacts/saved-contacts/
+    @{contact_elements}=    Get Elements    css=.contact-summary__name
+    @{contacts}=    Get contacts    ${contact elements}
+    ${table}=    Create Table    ${contacts}
+    Write Table To Csv    ${table}    ${CONTACTS_CSV}
