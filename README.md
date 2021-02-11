@@ -34,3 +34,7 @@ John,Smith,john.smith@accenture.com,4/13/2007
 Mindy,Notreal,mindy.notreal@gmail.com,2/3/2007
 ...
 ```
+
+## Notes
+
+> This robot can not be run from Robocorp Cloud as LinkedIn will detect a "suspicious login attempt" and sends a verification code to your email.
