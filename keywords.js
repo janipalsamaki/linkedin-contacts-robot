@@ -6,8 +6,9 @@ async function getHrefAttributeValues(page, args) {
 }
 
 async function getTextIfExists(page, args) {
+  const selector = args[0];
   try {
-    return await page.innerText(args[0], { timeout: 1 });
+    return await page.innerText(selector, { timeout: 100 });
   } catch (e) {
     return '';
   }
